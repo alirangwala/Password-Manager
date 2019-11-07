@@ -1,0 +1,144 @@
+WindowManager:
+    LoginWindow:
+    MenuWindow:
+    GPWindow:
+    APWindow:
+    CSWindow:
+<LoginWindow>:
+    name: "login"
+    admin_password: password
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "WELCOME TO YOUR PASSWORD SAFE!"
+            font_size: (root.width**2 + root.height**2) / 16**4
+        Label:
+            text: "PLEASE ENTER YOUR KEY BELOW!"
+            font_size: (root.width**2 + root.height**2) / 18**4
+
+        TextInput:
+            id: password
+            multiline: False
+
+        Button:
+            text: "SUBMIT"
+            font_size: (root.width**2 + root.height**2) / 18**4
+            on_press:
+                root.loginBtn()
+                root.manager.transition.direction = "left"
+            on_release:
+                root.CreateTable()
+
+<MenuWindow>:
+    name: "menu"
+
+    BoxLayout:
+        orientation: "vertical"
+
+        BoxLayout:
+            orientation: "vertical"
+            Label:
+                text: "WHAT WOULD YOU LIKE TO DO TODAY?"
+                font_size: (root.width**2 + root.height**2) / 16**4
+        GridLayout:
+            cols: 4
+            Button:
+                text: "GET PASSWORD"
+                on_release:
+                    app.root.current = "GP"
+                    root.manager.transition.direction = "left"
+            Button:
+                text: "ADD PASSWORD"
+                on_release:
+                    app.root.current = "AP"
+                    root.manager.transition.direction = "left"
+            Button:
+                text: "CLEAN SERVICE"
+                on_release:
+                    app.root.current = "CS"
+                    root.manager.transition.direction = "left"
+        Button:
+            text: "EXIT"
+            on_release:
+                app.root.current = "login"
+                root.manager.transition.direction = "right"
+
+<GPWindow>:
+    name: "GP"
+    service_text_input: service
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "GET PASSWORD"
+        Label:
+            text: "WHAT IS THE NAME OF YOUR SERVICE?"
+        TextInput:
+            id: service
+            multiline: False
+        Button:
+            text: "GO"
+            on_press: root.GetPassword()
+        Button:
+            text: "BACK"
+            on_release:
+                app.root.current = "menu"
+                root.manager.transition.direction = "right"
+
+<APWindow>:
+    name: "AP"
+    service_text_input: service
+    username_text_input: username
+    password_text_input: password
+
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "ADD PASSWORD"
+        Label:
+            text: "WHAT IS THE NAME OF YOUR SERVICE?"
+        TextInput:
+            id: service
+            multiline: False
+        Label:
+            text: "WHAT IS YOUR USERNAME?"
+        TextInput:
+            id: username
+            multiline: False
+        Label:
+            text: "WHAT IS YOUR PASSWORD?"
+        TextInput:
+            id: password
+            multiline: False
+        GridLayout
+            cols: 2
+            Button:
+                text: "ADD PASSWORD"
+                on_press: root.AddPassword()
+            Button:
+                text: "GENERATE PASSWORD"
+                on_press: root.GeneratePassword()
+        Button:
+            text: "BACK"
+            on_release:
+                app.root.current = "menu"
+                root.manager.transition.direction = "right"
+<CSWindow>:
+    name: "CS"
+    service_text_input: service
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "CLEAN SERVICE"
+        Label:
+            text: "WHAT IS THE NAME OF YOUR SERVICE?"
+        TextInput:
+            id: service
+            multiline: False
+        Button:
+            text: "GO"
+            on_press: root.CleanService()
+        Button:
+            text: "BACK"
+            on_release:
+                app.root.current = "menu"
+                root.manager.transition.direction = "right"
