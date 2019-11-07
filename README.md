@@ -1,12 +1,12 @@
 # Password-Manager
-Handling your passwords responsibly is the number one way you can make yourself less vulnerable to hacking. In order to do so you should:
-]n
--Make your passwords long\n
--Make your passwords nonsensical including uppercase and lowercase letters, numbers, and symbols\n
--Never reuse passwords\n
--Change your passwords regularly\n
+Handling your passwords responsibly is the number one way you can be less vulnerable to hacking. In order to do so you should:
 
-This is a command line application that stores and secures your passwords on your local drive. The app uses SQLite to create a database for your information. Note a safe.db or pwsafe.db file will be created when using these apps and should NOT be deleted.
+*Make your passwords long
+*Make your passwords nonsensical including uppercase and lowercase letters, numbers, and symbols
+*Never reuse passwords
+*Change your passwords regularly
+
+This is a command line application that stores and secures your passwords on your local drive and addresses all of the above issues. The app uses SQLite to create a database for your information. Note a safe.db or pwsafe.db file will be created when using these apps and should NOT be deleted.
 
 pwstorer.py is my original app that uses the command line
 
