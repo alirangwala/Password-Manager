@@ -28,7 +28,6 @@ WindowManager:
                 root.manager.transition.direction = "left"
             on_release:
                 root.CreateTable()
-
 <MenuWindow>:
     name: "menu"
 
@@ -62,7 +61,6 @@ WindowManager:
             on_release:
                 app.root.current = "login"
                 root.manager.transition.direction = "right"
-
 <GPWindow>:
     name: "GP"
     service_text_input: service
@@ -83,7 +81,6 @@ WindowManager:
             on_release:
                 app.root.current = "menu"
                 root.manager.transition.direction = "right"
-
 <APWindow>:
     name: "AP"
     service_text_input: service
